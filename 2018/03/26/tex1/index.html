@@ -30,6 +30,16 @@ Js主要用途是交互，以及操作DOM，这决定了其只能是单线程的
   <title>javascript EventLoop [ blog ]</title>
   
   
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+  <link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
   
 </head>
 
@@ -54,13 +64,55 @@ Js主要用途是交互，以及操作DOM，这决定了其只能是单线程的
       <div id="brand">
         
         <a onClick="openUserCard()">
-          <img id="avatar" src=""/>
+          <img id="avatar" src="http://img.hb.aicdn.com/62bfaf07f57d8996a69b154a47e99190745d25ed2b95d-gbU5Wj_fw658"/>
           <div id="homelink">blog</div>
         </a>
       </div>
       <div id="menu-list">
         <ul>
         
+        
+          
+            <li>
+          
+            <a href="/index.html">Home</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">Archives</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">Tags</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">Categories</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">About</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="https://github.com/Hanshanyeyu">Github</a>
+            
+          </li>
         
         </ul>
       </div>
@@ -77,9 +129,9 @@ Js主要用途是交互，以及操作DOM，这决定了其只能是单线程的
   <article id="post">
     <h1>javascript EventLoop</h1>
     <p class="page-title-sub">
-      <span id = "post-title-date">Created at 2018-03-26</span>
+      <span id = "post-title-date">撰写于 2018-03-26</span>
       
-        <span id = "post-title-updated">Updated at 2018-03-26</span>
+        <span id = "post-title-updated">修改于 2018-03-26</span>
       
       
       
@@ -185,10 +237,10 @@ Js主要用途是交互，以及操作DOM，这决定了其只能是单线程的
 
   </article>
   <div class="random-toc-area">
-  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">Show TOC</button>
-  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">显示目录</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">隐藏目录</button>
   <div class="random-toc">
-    <h2>Table of Content</h2>
+    <h2>目录</h2>
     
   </div>
 </div>
@@ -200,7 +252,7 @@ Js主要用途是交互，以及操作DOM，这决定了其只能是单线程的
   
 
   
-    <a href="/2018/03/26/Untitled/" class="next">Next post  &rarr;</a>
+    <a href="/2018/03/26/Untitled/" class="next">下一篇  &rarr;</a>
   
 </nav>
 
@@ -229,44 +281,107 @@ Js主要用途是交互，以及操作DOM，这决定了其只能是单线程的
 
 <div id="user-card">
   <div class="center-field">
-    <img class="avatar" src="">
+    <img class="avatar" src="http://img.hb.aicdn.com/62bfaf07f57d8996a69b154a47e99190745d25ed2b95d-gbU5Wj_fw658">
     <p id="description"></p>
     <ul class="social-icon">
   
+  
+    <li>
+      <a href="https://github.com/Hanshanyeyu">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://weibo.com/younideqingkong">
+        
+          <i class="icon iconfont weibo">&#xe602;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.douban.com/people/131741549">
+        
+          <i class="icon iconfont douban">&#xe60f;</i>
+        
+      </a>
+    </li>
   
 </ul>
   </div>
 </div>
 
 
+<div id="btn-view">Hide</div>
+
 <script>
 // is trigger analytics / tongji script
 var isIgnoreHost = false;
 
 if(window && window.location && window.location.host) {
-  isIgnoreHost = "".some(function(address){
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
     return 0 === window.location.host.indexOf(address);
   });
 }
 
-var isTriggerAnalytics = !( "" && isIgnoreHost );
+var isTriggerAnalytics = !( true && isIgnoreHost );
 
 </script>
 
 
 
 
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
 <script>
 
-var vegasConfig = "";
-var unsplashConfig = "";
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["slideLeft2","slideRight2","flash2"],"timer":true,"delay":5000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
 // is show background images
 var turnoffBackgroundImage = false;
 
 
 
+  turnoffBackgroundImage = true;
 
-var backgroundColor = "";
+
+var backgroundColor = "34495E";
 
 $(".fancybox-thumb").fancybox({
   prevEffect: 'none',
