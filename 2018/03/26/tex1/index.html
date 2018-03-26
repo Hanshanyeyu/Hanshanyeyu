@@ -16,17 +16,16 @@
   
   
   
-    <meta name="description" content="title:javascript EventLoop
-js是单线程语言
+    <meta name="description" content="js是单线程语言
 js的执行机制 EventLoop
+
+
 一、为什么是单线程?
 
 
-
-
-Js主要用途是交互，以及操作DOM，这决定了其只能是单线程的，否则会产生复杂的同步问题。 例：假设js同时有两个线程，一个线程在DOM添加内容，另一个删除了该节点，则问题来了，浏览器以谁为准？为利用多核cpu计算能力，HTML5提出Web Worker标准...">
+Js主要用途是交互，以及操作DOM，这决定了其只能是单线程的，否则会产生复杂的同步问题。 例：假设js同时有两个线程，一个线程在DOM添加内容，另一个删除了该节点，则问题来了，浏览器以谁为准？为利用多核cpu计算能力，HTML5提出Web Worker标准，允许js脚本创建多个线程，但子线程完全受主线程控制，...">
   
-  <title> [ blog ]</title>
+  <title>javascript EventLoop [ blog ]</title>
   
   
     <link rel="shortcut icon" href="/favicon.ico">
@@ -126,7 +125,7 @@ Js主要用途是交互，以及操作DOM，这决定了其只能是单线程的
       
       
   <article id="post">
-    <h1>No Title</h1>
+    <h1>javascript EventLoop</h1>
     <p class="page-title-sub">
       <span id = "post-title-date">Created at 2018-03-26</span>
       
@@ -137,13 +136,13 @@ Js主要用途是交互，以及操作DOM，这决定了其只能是单线程的
     </p>
     
     <hr>
-<h2 id="title-javascript-EventLoop"><a href="#title-javascript-EventLoop" class="headerlink" title="title:javascript EventLoop"></a>title:javascript EventLoop</h2><ul>
+<ul>
 <li>js是单线程语言</li>
-<li>js的执行机制 EventLoop<blockquote>
+<li>js的执行机制 EventLoop</li>
+</ul>
+<blockquote>
 <p>一、为什么是单线程?</p>
 </blockquote>
-</li>
-</ul>
 <hr>
 <p>Js主要用途是交互，以及操作DOM，这决定了其只能是单线程的，否则会产生复杂的同步问题。 例：假设js同时有两个线程，一个线程在DOM添加内容，另一个删除了该节点，则问题来了，浏览器以谁为准？<br>为利用多核cpu计算能力，HTML5提出Web Worker标准，允许js脚本创建多个线程，但子线程完全受主线程控制，且不得操作DOM，所以 并没有违反js单线程本质。</p>
 <blockquote>
@@ -239,7 +238,7 @@ Js主要用途是交互，以及操作DOM，这决定了其只能是单线程的
   <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">Hide TOC</button>
   <div class="random-toc">
     <h2>Table of Content</h2>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#title-javascript-EventLoop"><span class="toc-text">title:javascript EventLoop</span></a></li></ol>
+    
   </div>
 </div>
 
